@@ -1,0 +1,105 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit")
+ * @ORM\Entity
+ */
+class Produit
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idBoutique", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idboutique;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idProduit", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idproduit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomProduit", type="string", length=254, nullable=true)
+     */
+    private $nomproduit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tailleProduit", type="string", length=254, nullable=true)
+     */
+    private $tailleproduit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matiereProduit", type="string", length=254, nullable=true)
+     */
+    private $matiereproduit;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prixProduit", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $prixproduit;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateExpoProduit", type="datetime", nullable=true)
+     */
+    private $dateexpoproduit;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateExpirationProduit", type="datetime", nullable=true)
+     */
+    private $dateexpirationproduit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlImgProduit", type="string", length=254, nullable=true)
+     */
+    private $urlimgproduit;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="promotionProduit", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $promotionproduit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="qteDispoProduit", type="integer", nullable=true)
+     */
+    private $qtedispoproduit;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="validite_produit", type="boolean", nullable=true)
+     */
+    private $validiteProduit;
+
+
+}
+

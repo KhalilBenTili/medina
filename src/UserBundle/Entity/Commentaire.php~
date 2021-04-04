@@ -1,0 +1,51 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commentaire
+ *
+ * @ORM\Table
+ * @ORM\Entity
+ */
+class Commentaire
+{
+    /**
+     *@ORM\GeneratedValue
+     * @ORM\Id
+     * @ORM\Column(name="idcommentaire", type="integer", nullable=false)
+     */
+    private $idcommentaire;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenuCommentaire", type="string", length=254, nullable=true)
+     */
+    private $contenucommentaire;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCommentaire", type="datetime", nullable=true)
+     */
+    private $datecommentaire;
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     */
+    private $iduser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Videodiy")
+     * @ORM\JoinColumn(name="id_video", referencedColumnName="idvideo" )
+     *
+     */
+    private $idvideo;
+
+
+
+}

@@ -1,0 +1,87 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Videodiy
+ *
+ * @ORM\Table
+ * @ORM\Entity
+ */
+class Videodiy
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idVideo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idvideo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     */
+    private $iduser;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionVideo", type="string", length=254, nullable=true)
+     */
+    private $descriptionvideo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dureeVideo", type="string", length=254, nullable=true)
+     */
+    private $dureevideo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateExpoVideo", type="datetime", nullable=true)
+     */
+    private $dateexpovideo;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="noteVideo", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $notevideo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=254, nullable=true)
+     */
+    private $commentaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=true)
+     */
+    private $titre;
+
+    /**
+     *
+     * @var string
+     * @ORM\Column(name="video", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the video .")
+     * @Assert\File(mimeTypes={ "video/*" })
+     */
+    private $video;
+
+
+
+}

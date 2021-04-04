@@ -1,0 +1,56 @@
+{% extends "client/layout.html.twig" %}
+
+{% block title %}IndexBundle:Index:Acceuil{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="album text-muted">
+        <div class="container">
+
+            <div class="row-title">Videos recommandées pour vous :</div>
+            <div class="row">
+                {% for recommandedVideo in recommendationResults %}
+
+                    {% if recommandedVideo %}
+                        <div class="home-video-element"  onClick="location.href='{{ path('detailVideo', {'id':recommandedVideo.idvideo}) }}';" >
+                            <video controls>
+                                <source src="{{ asset('uploads/videos/' ~ recommandedVideo.video) }} " >
+                            </video>
+                            <div class="home-video-info-mgr">
+                                <span class="home-video-title">{{ recommandedVideo.titre }}  </span><span class="home-video-timestamp">{{ recommandedVideo.dateexpovideo|date }}</span>
+                                <p class="home-video-desc">{{ recommandedVideo.descriptionvideo }} </p>
+                                <p>{{ recommandedVideo.avgRating |rating }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+
+            <div class="row-title">Videos les plus populaires :</div>
+            <div class="row">
+                  {% for video in videos %}
+                       <div class="home-video-element" onClick="location.href='{{ path('detailVideo', {'id':video.idvideo}) }}';">
+
+                           <video controls >
+                               <source src="{{ asset('uploads/videos/' ~ video.video) }} " >
+                           </video>
+                           <div class="home-video-info-mgr">
+                               <span class="home-video-title">{{ video.titre }}  </span><span class="home-video-timestamp">{{ video.dateexpovideo|date }}</span>
+                               <p class="home-video-desc">{{ video.descriptionvideo }} </p>
+                               <p>{{ video.avgRating |rating }}</p>
+                           </div>
+                       </div>
+                 {% endfor %}
+
+            </div>
+
+
+
+        </div>
+    </div>
+{% endblock %}

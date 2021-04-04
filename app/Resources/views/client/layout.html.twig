@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>{% block title %} Acceuil {% endblock %}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="{{ asset('client/css/master.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/css/color7.css') }}">
+	    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+
+
+    </head>
+
+
+    <body>
+    <div id="header">
+
+        <div class="header_bot">
+            <div class="container">
+                <div class="logo"> <a href="{{ path('index_Acceuil') }}"><img alt="alt" src="{{ asset('client/images/souk.png') }}"   ></a> </div>
+                <div id="nav" class="yamm">
+                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <nav id="navbar-collapse-1" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown"><a href="{{ path('index_Acceuil') }}"  >Acceuil </a> </li>
+                            <li class="dropdown yamm-fw"><a href="{{ path('index_Acceuil') }}" data-toggle="dropdown" class="dropdown-toggle">Produits <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="yamm-content">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">
+                                                        <h5>Habillement</h5>
+                                                        <ul>
+                                                            <li><a href="{{ path('index_Acceuil') }}">Foutas </a></li>
+                                                            <li><a href="catalog.html">chachia</a></li>
+                                                            <li><a href="catalog.html">panier</a></li>
+
+                                                        </ul>
+                                                        <h5>Tapis</h5>
+                                                        <ul>
+                                                            <li><a href="{{ asset('catalog.html') }}catalog.html">Baby</a></li>
+                                                            <li><a href="catalog.html">Children 3-7</a></li>
+                                                            <li><a href="catalog.html">Children 8-12</a></li>
+                                                        </ul>
+                                                        <h5>Epicerie</h5>
+                                                        <ul>
+                                                            <li><a href="{{ asset('catalog.html') }}">Gateau Tunisien </a></li>
+                                                            <li><a href="catalog.html">Epices</a></li>
+                                                            <li><a href="catalog.html">Huile d'olive</a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">
+                                                        <h5>Décoration</h5>
+                                                        <ul>
+                                                            <li><a href="{{ asset('catalog.html') }}">Articles en cuivre</a></li>
+                                                            <li><a href="catalog.html">Article en verre </a></li>
+                                                            <li><a href="catalog.html">Mosaique </a></li>
+                                                            <li><a href="catalog.html">Bougeoire </a></li>
+
+                                                        </ul>
+                                                        <h5>Commande sur Mesure</h5>
+                                                        <ul>
+                                                            <li><a href="{{ asset('catalog.html') }}">Mattresses</a></li>
+                                                            <li><a href="catalog.html">Beds</a></li>
+
+                                                        </ul>
+                                                        <h5>Bijoux</h5>
+                                                        <ul>
+                                                            <li><a href="{{ asset('catalog.html') }}">Mattresses</a></li>
+
+
+                                                        </ul>
+                                                    </div>
+
+
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="new_item">
+                                                            <div class="clearfix item_title">
+                                                                <h5>New items and sales</h5>
+                                                                <div class="item_nav">
+                                                                    <ul>
+                                                                        <li class="active"><a href="catalog.html"></a></li>
+                                                                        <li><a href="catalog.html"></a></li>
+                                                                        <li><a href="catalog.html"></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item_thumb"></div>
+                                                            <div class="item_desc">
+                                                                <div class="pull-left">
+                                                                    <h5>Mugs with yellow stripes</h5>
+                                                                    <p>Kitchen utensils</p>
+                                                                </div>
+                                                                <div class="price">$15.50</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown"><a href="{{ path('index_Gallerie') }}">Galerie</a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li>
+
+                                        <ul>
+                                            <li><a href="{{ asset('client/index-2.html')}}">Visite Guidée</a></li>
+                                            <li><a href="{{ asset('client/catalog.html') }}">Bon Plans</a></li>
+                                            <li><a href="{{ asset('client/product.html') }}">Habits Traditionnels</a></li>
+                                            <li><a href="{{ asset('client/product.html') }}">Les Intournables </a></li>
+                                            <li><a href="{{ path('index_Acceuil') }}">Trouver un guide</a></li>
+
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href={{ path('index_Event') }}  >Evénements </a> </li>
+
+                            {% if (is_granted('ROLE_CLIENT') ) %}
+
+                            <li class="dropdown"><a href={{ path('afficherClient') }} >Forum</a> </li>
+
+                             {% endif %}
+
+
+                            {% if (is_granted('ROLE_PRO')or (is_granted('ROLE_FREELANCER') )) %}
+                                <li class="dropdown open-nav"><a href="" data-toggle="dropdown" class="dropdown-toggle">Espace Partenaire<b class="caret"></b></a>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li>
+
+                                            <ul>
+                                                <li><a href="index-2.html">Profile</a></li>
+                                                <li><a href="catalog.html">Mes Produits</a></li>
+                                                <li class="dropdown"><a href={{ path('afficher') }} >Mes Videos</a> </li>
+                                            </ul>
+
+
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            <li class="dropdown"><a href={{ path('index_Contact') }} >Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="right_menu">
+                    <ul>
+                        <li class="menubtn"><a href="#"><span class="fa fa-shopping-cart"></span></a>
+                            <div class="menu_c cart_menu">
+                                <div class="menu_title clearfix">
+                                    <h4>Your Cart</h4>
+                                </div>
+                                <div class="cart_row">
+                                    <ul>
+                                        <li>
+                                            <div class="pro_img"><span></span></div>
+                                        </li>
+                                        <li>
+                                            <h5><a href="http://templines.com/demo/html/cooncook/catalog.html">POÄNG - Chair, Blomstermåla</a></h5>
+                                            <p>Living room furniture</p>
+                                        </li>
+                                        <li>
+                                            <div class="price">$360.00</div>
+                                            <a href="#" class="del_btn"></a> </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <div class="pro_img"><span></span></div>
+                                        </li>
+                                        <li>
+                                            <h5><a href="http://templines.com/demo/html/cooncook/catalog.html">Mugs with yellow stripes</a></h5>
+                                            <p>Kitchen utensils</p>
+                                        </li>
+                                        <li>
+                                            <div class="price">$15.50</div>
+                                            <a href="#" class="del_btn"></a> </li>
+                                    </ul>
+                                </div>
+                                <div class="cheout_row clearfix">
+                                    <p><span class="fa fa-clock-o"></span>Praesent egestas est vitae interdum amet erat varius elementum.</p>
+                                    <a href="#" class="checkout_btn">Checkout</a> </div>
+                            </div>
+                        <li class="menubtn"><a href="#"><span class="fa fa-user"></span></a>
+                                <div class="menu_c acc_menu">
+                                    {% block login %}
+                                        <div class="row" >
+                                            <div class=".col-sm-1 .col-sm-10">
+                                            <div class="menu_title clearfix">
+                                            <div class="sign_up " >
+                                                <a href="{{ path('fos_user_registration_register') }}" class="sign_up">Sign up</a>
+                                                <br/> <br/>
+                                                <a href="{{ path('fos_user_security_login') }}" class="sign_up"> Login</a>
+                                            </div><br>
+                                            </div>
+                                            </div>
+                                      </div>
+                                           <!-- <div class="forgot clearfix">  <a href="{{ path('fos_user_change_password') }}"> mot de passe oublié</a> </div><br> -->
+
+                                    </div>
+                                    {% endblock %}
+
+                        </li>
+
+
+                        <li class="menubtn"><a href="#"><span class="fa fa-search"></span></a>
+                            <div class="menu_c search_menu">
+                                <div class="search_box">
+                                    <input type="search" class="txtbox" placeholder="Search">
+                                    <a href="#"><span class="fa fa-level-down fa-rotate-90"></span></a>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+     {% block flexslider %}
+    <div class="flexslider home-slider">
+        <ul class="slides">
+            <li> <img alt="alt" src="{{ asset('client/images/12.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+            <li> <img alt="alt" src="{{ asset('client/images/15.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+            <li> <img alt="alt" src="{{ asset('client/images/18.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+            <li> <img alt="alt" src="{{ asset('client/images/26.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+            <li> <img alt="alt" src="{{ asset('client/images/17.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+            <li> <img alt="alt" src="{{ asset('client/images/19.jpg') }}" >
+                <div class="flex-caption">
+                    <div class="banner">
+                        <h1>Le Souk</h1>
+                        <div class="line_1"></div>
+                        <h4>El-Medina</h4>
+                        <p>bla blabla blabla blabla blabla blabla blabla blabla bla</p>
+                        <a class="btn_c" href="#">Details</a> </div>
+                </div>
+            </li>
+
+
+        </ul>
+        <div class="container">
+            <div class="banner_nav ">
+                <div class="scroll_down">Scroll down <span class="fa fa-arrow-circle-down"></span></div>
+            </div>
+        </div>
+    </div>
+     {% endblock %}
+    {% block content %}
+
+
+    {% endblock content %}
+    <div id="footer" >
+
+        <div class="f_mid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4>A propos</h4>
+                        <div class="desc">  Née d’une collaboration multiple entre promouvoir l'aspect touristique et culturel de la tunisie ainsi que donnée la chance aux talentueux artisants d'exposer leur travail, Souk El Medina est une plateforme numérique destinée à la promotion du métier d’artisan et des produits du terroir Tunisien.
+
+                            C’est un lieu de rencontre des créateurs qui se veut être la référence du savoir-faire ancestral riche et varié, transmis de père en fils et qui a pour ambition de devenir le marketplace incontournable de promotion des artisans de tous horizons et des « Petits métiers » en voie de déperdition.</div>
+                        <div class="partner">
+                            <h4>Nos partenaires</h4>
+                            <ul>
+                                <li><a href="#"><img alt="alt" src="{{ asset('client/images/partner_logo_1.png') }}" ></a>
+                                <a href="#"><img alt="alt" src="{{ asset('client/images/partner_logo_2.png') }}" ></a>
+                                <a href="#"><img alt="alt" src="{{ asset('client/images/partner_logo_3.png') }}" ></a>
+                                <a href="#"><img width="20%" alt="alt" src="{{ asset('client/images/Logo_3000.jpg') }}"></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <h4>Contacts</h4>
+
+                        <p><strong>Adress : </strong>Z.I. Chotrana II B.P. 160 Pôle Technologique El Ghazela - Ariana 208 </p>
+                        <p><strong>Phone : </strong>+216 79 123 456</p>
+                        <p><strong>E-mail : </strong><a href="#">YouthVision@esprit.tn</a></p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <h4>Newsletter</h4>
+                        <div class="desc">Rejoingez notre Newsletter, vous recevrez régulièrement toutes nos actualités sur votre boîte de réception</div>
+                        <div class="emial_box">
+                            <input type="text" class="txtbox" placeholder="Enter your e-mail">
+                            <a href="#"><span class="fa fa-level-down fa-rotate-90"></span></a></div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                <li class="twitter"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li class="dribbble"><a href="#"><span class="fa fa-google-plus"></span></a></li>
+                                <li class="plus"><a href="#"><span class="fa fa-dribbble"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="f_bot">
+            <div class="container">
+                <div class="f_bot_left"><strong>Souk El Medina - </strong>Responsive  Theme  © 2018</div>
+                <div class="f_bot_right">Design By <a href="#">YouthVision</a></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script  src="{{ asset('client/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/jquery.icheck.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/package.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/jquery.flexslider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/bxslider/jquery.bxslider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('client/js/scripts.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+
+    </body>
+</html>

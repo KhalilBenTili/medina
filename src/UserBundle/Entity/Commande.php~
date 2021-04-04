@@ -1,0 +1,68 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commande
+ *
+ * @ORM\Table(name="commande", indexes={@ORM\Index(name="FK_Commande_User", columns={"id"})})
+ * @ORM\Entity
+ */
+class Commande
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCommande", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcommande;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCommande", type="datetime", nullable=true)
+     */
+    private $datecommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeCommande", type="string", length=254, nullable=true)
+     */
+    private $typecommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modePayementCommande", type="string", length=254, nullable=true)
+     */
+    private $modepayementcommande;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="totalPrixCommande", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $totalprixcommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatCommande", type="string", length=254, nullable=true)
+     */
+    private $etatcommande;
+
+
+}
+

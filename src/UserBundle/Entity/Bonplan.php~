@@ -1,0 +1,68 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Bonplan
+ *
+ * @ORM\Table(name="bonplan", indexes={@ORM\Index(name="FK_BonPlan_Galerie", columns={"idGallerie"})})
+ * @ORM\Entity
+ */
+class Bonplan
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idBonplan", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idbonplan;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idGallerie", type="integer", nullable=false)
+     */
+    private $idgallerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomBonplan", type="string", length=254, nullable=true)
+     */
+    private $nombonplan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="localisationBonplan", type="string", length=254, nullable=true)
+     */
+    private $localisationbonplan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeBonplan", type="string", length=254, nullable=true)
+     */
+    private $typebonplan;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="avisBonplan", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $avisbonplan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commantaireBonplan", type="string", length=254, nullable=true)
+     */
+    private $commantairebonplan;
+
+
+}
+

@@ -1,0 +1,6 @@
+guide_homepage:
+    path:     /
+    defaults: { _controller: GallerieBundle:Default:index }
+index_Gallerie:
+    path:     /Gallerie
+    defaults: { _controller: GallerieBundle:Gallerie:Gallerie }

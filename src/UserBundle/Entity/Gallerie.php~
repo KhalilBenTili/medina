@@ -1,0 +1,54 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Gallerie
+ *
+ * @ORM\Table(name="gallerie")
+ * @ORM\Entity
+ */
+class Gallerie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idGallerie", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idgallerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeGallerie", type="string", length=254, nullable=true)
+     */
+    private $typegallerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionGallerie", type="string", length=254, nullable=true)
+     */
+    private $descriptiongallerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPhotoGallerie", type="string", length=254, nullable=true)
+     */
+    private $urlphotogallerie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="regionGallerie", type="string", length=254, nullable=true)
+     */
+    private $regiongallerie;
+
+
+}
+

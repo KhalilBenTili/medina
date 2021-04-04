@@ -1,0 +1,51 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Userevent
+ *
+ * @ORM\Table(name="userevent", indexes={@ORM\Index(name="FK_UserEvent_Event", columns={"idEvent"})})
+ * @ORM\Entity
+ */
+class Userevent
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idEvent", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idevent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idInscri", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idinscri;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateInscri", type="datetime", nullable=true)
+     */
+    private $dateinscri;
+
+
+}
+

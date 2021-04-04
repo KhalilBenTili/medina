@@ -1,0 +1,7 @@
+{% extends "client/layout.html.twig" %}
+
+{% block login %}
+    <a href="{{ path('fos_user_change_password') }}" class="signin_btn btn_c">Change password</a>
+    <a href="{{ path('fos_user_profile_edit') }}" class="signin_btn btn_c">Update</a>
+    <a href="{{ path('fos_user_security_logout') }}" class="signin_btn btn_c">Logout</a>
+{% endblock %}
